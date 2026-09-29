@@ -29,7 +29,7 @@ export function Cta({ children, section, variant = "solid" }: { children: string
       ? "bg-accent text-on-accent hover:bg-accent-hover"
       : "border-2 border-navy text-navy hover:bg-navy hover:text-white";
   return (
-    <a href="#contact" onClick={() => track("cta_click", { section })} className={`${base} ${styles}`}>
+    <a href="#contact" data-cta={section} onClick={() => track("cta_click", { section })} className={`${base} ${styles}`}>
       <Txt>{children}</Txt>
     </a>
   );

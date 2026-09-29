@@ -24,6 +24,8 @@ Write direct-response, benefit-led copy for the 13-section page, in the buyer's 
 - CTA labels: verb + outcome ("Get your free AI opportunity audit"). Add microcopy under CTAs ("30 minutes · No obligation · Reply within 1 business day").
 - Use only stats listed as approved in the brief. Add no others.
 - Missing proof → `[REPLACE: description of what's needed]`. Never invent names, logos, numbers, quotes.
+- Any promise about how the business works (NDA, response time, timeline, guarantees, review steps) that the brief does not confirm gets a trailing ` [REPLACE: confirm]` so the owner must approve it before launch.
+- All interface text goes in `labels`, never in components.
 - Form: labels, placeholders, helper text, error messages, consent line, success message.
 - Include SEO title (≤ 60 chars), meta description (≤ 155), OG title/description.
 
@@ -45,6 +47,7 @@ Write direct-response, benefit-led copy for the 13-section page, in the buyer's 
   "about": { "headline", "body", "credentials": [], "cta" },
   "faq": { "headline", "items": [{ "q", "a" }] },
   "finalCta": { "headline", "body", "riskReversal", "nextSteps": [] },
+  "labels": { "navAria", "formAria", "serviceFor", "nextStepsHeading", "sourcePrefix", "caseChallenge", "caseSolution", "successTitle", "selectPlaceholder", "sending" },
   "form": { "fields": [{ "name", "label", "placeholder", "required", "type" }], "submit", "consent", "success", "errors": {} },
   "footer": { "links": [], "legal" }
 }

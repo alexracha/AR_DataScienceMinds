@@ -42,9 +42,9 @@
     "cta": "Get your free AI opportunity audit",
     "microcopy": "30-minute call · Written summary · No obligation",
     "proofPoints": [
-      "Pilot live in 2–4 weeks",
-      "Human-in-the-loop by default",
-      "NDA before we touch your data"
+      "Pilot live in 2–4 weeks [REPLACE: confirm]",
+      "Human-in-the-loop by default [REPLACE: confirm]",
+      "NDA before we touch your data [REPLACE: confirm]"
     ]
   },
   "socialProof": {
@@ -126,7 +126,7 @@
       },
       {
         "title": "Prove",
-        "body": "We build one pilot in 2–4 weeks and measure it against a single number."
+        "body": "We build one pilot in 2–4 weeks and measure it against a single number. [REPLACE: confirm]"
       },
       {
         "title": "Scale",
@@ -156,7 +156,7 @@
         "forWho": "Teams ready to automate real work",
         "outcome": "Working automations, assistants and data pipelines inside your tools",
         "includes": [
-          "Pilot in 2–4 weeks",
+          "Pilot in 2–4 weeks [REPLACE: confirm]",
           "Integration with your systems",
           "Human review steps",
           "Success metric tracking"
@@ -261,11 +261,11 @@
     "items": [
       {
         "q": "Is my data safe?",
-        "a": "We sign an NDA before seeing anything, work inside your existing tools where possible, and only use what a project needs. We'll walk you through exactly how your data is handled before any work begins."
+        "a": "We sign an NDA before seeing anything, work inside your existing tools where possible, and only use what a project needs. We'll walk you through exactly how your data is handled before any work begins. [REPLACE: confirm]"
       },
       {
         "q": "Can I trust AI to get things right?",
-        "a": "Not blindly. We build human review steps into every workflow, so your team approves what matters and the AI handles the repetitive parts."
+        "a": "Not blindly. We build human review steps into every workflow, so your team approves what matters and the AI handles the repetitive parts. [REPLACE: confirm]"
       },
       {
         "q": "What does it cost?",
@@ -277,7 +277,7 @@
       },
       {
         "q": "How long until we see results?",
-        "a": "A pilot typically goes live in 2–4 weeks, measured against one agreed number."
+        "a": "A pilot typically goes live in 2–4 weeks, measured against one agreed number. [REPLACE: confirm]"
       },
       {
         "q": "Why not just do it ourselves?",
@@ -287,11 +287,11 @@
   },
   "finalCta": {
     "headline": "Find your first AI win in 30 minutes",
-    "body": "Tell us what you'd like AI to fix. We'll reply within one business day to set up your free audit call.",
+    "body": "Tell us what you'd like AI to fix. We'll reply within one business day to set up your free audit call. [REPLACE: confirm]",
     "riskReversal": "No obligation. No pressure. If we don't see a clear payback, we'll say so.",
     "nextSteps": [
       "You send the form (under a minute)",
-      "We reply within one business day",
+      "We reply within one business day [REPLACE: confirm]",
       "We hold the 30-minute audit call",
       "You get a written summary of your top opportunities"
     ]
@@ -357,7 +357,7 @@
     ],
     "submit": "Get your free AI opportunity audit",
     "consent": "By submitting, you agree we may contact you about your request. We never sell your data. [REPLACE: link to privacy policy]",
-    "success": "Thanks! We'll email you within one business day to set up your audit call.",
+    "success": "Thanks! We'll email you within one business day to set up your audit call. [REPLACE: confirm]",
     "errors": {
       "name": "Please enter your name.",
       "email": "Please enter a valid work email.",
@@ -378,5 +378,17 @@
       }
     ],
     "legal": "© AR DataScienceMinds. All rights reserved."
+  },
+  "labels": {
+    "navAria": "Primary",
+    "formAria": "Free AI opportunity audit request",
+    "serviceFor": "For:",
+    "nextStepsHeading": "What happens next",
+    "sourcePrefix": "Source:",
+    "caseChallenge": "Challenge:",
+    "caseSolution": "What we did:",
+    "successTitle": "You're in.",
+    "selectPlaceholder": "Select…",
+    "sending": "Sending…"
   }
 }

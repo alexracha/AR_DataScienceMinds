@@ -8,7 +8,7 @@ export function Faq() {
       <div className="max-w-3xl space-y-3">
         {f.items.map((it) => (
           <details key={it.q} className="group rounded-xl bg-white p-5 shadow-sm">
-            <summary className="flex min-h-10 cursor-pointer list-none items-center justify-between gap-4 font-semibold">
+            <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 font-semibold">
               <Txt>{it.q}</Txt>
               <span aria-hidden className="text-xl transition-transform group-open:rotate-45">+</span>
             </summary>

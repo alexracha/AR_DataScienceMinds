@@ -23,7 +23,8 @@ export default defineConfig({
   webServer: {
     command: `npx next dev -p ${PORT}`,
     url: `http://localhost:${PORT}`,
-    reuseExistingServer: true,
+    // Never reuse: a stale server on this port would silently test old code.
+    reuseExistingServer: false,
     timeout: 120_000,
   },
 });

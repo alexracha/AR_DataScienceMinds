@@ -10,8 +10,8 @@ export function CaseStudies() {
           <li key={i} className="rounded-2xl border border-line p-8">
             <p className="text-sm font-semibold uppercase tracking-wide text-muted"><Txt>{it.industry}</Txt></p>
             <h3 className="mt-1 text-xl font-bold"><Txt>{it.client}</Txt></h3>
-            <p className="mt-4 text-sm"><strong>Challenge:</strong> <Txt>{it.challenge}</Txt></p>
-            <p className="mt-2 text-sm"><strong>What we did:</strong> <Txt>{it.solution}</Txt></p>
+            <p className="mt-4 text-sm"><strong>{copy.labels.caseChallenge}</strong> <Txt>{it.challenge}</Txt></p>
+            <p className="mt-2 text-sm"><strong>{copy.labels.caseSolution}</strong> <Txt>{it.solution}</Txt></p>
             <ul className="mt-4 space-y-1 border-t border-line pt-4 font-semibold text-navy">
               {it.results.map((r, j) => <li key={j}><Txt>{r}</Txt></li>)}
             </ul>

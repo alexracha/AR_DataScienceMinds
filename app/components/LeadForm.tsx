@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { copy, type FormField } from "@/lib/copy";
-import { leadSchema } from "@/lib/schema";
+import { HONEYPOT_FIELD, leadSchema } from "@/lib/schema";
 import { track } from "@/lib/track";
 import { Txt } from "./ui";
 
@@ -52,14 +52,14 @@ export function LeadForm() {
   if (status === "success") {
     return (
       <div role="status" className="rounded-2xl bg-white p-8 text-ink">
-        <p className="text-2xl font-bold">✓ You&apos;re in.</p>
-        <p className="mt-3 text-muted">{form.success}</p>
+        <p className="text-2xl font-bold">✓ {copy.labels.successTitle}</p>
+        <p className="mt-3 text-muted"><Txt>{form.success}</Txt></p>
       </div>
     );
   }
 
   const input =
-    "mt-1 block w-full rounded-lg border border-line bg-white px-4 py-3 text-base text-ink placeholder:text-muted/70";
+    "mt-1 block w-full rounded-lg border border-line bg-white px-4 py-3 text-base text-ink placeholder:text-muted";
 
   return (
     <form
@@ -76,7 +76,7 @@ export function LeadForm() {
         }
       }}
       className="rounded-2xl bg-white p-6 text-ink shadow-xl sm:p-8"
-      aria-label="Free AI opportunity audit request"
+      aria-label={copy.labels.formAria}
     >
       <div className="space-y-5">
         {(form.fields as FormField[]).map((f) => {
@@ -96,7 +96,7 @@ export function LeadForm() {
                 <textarea {...common} rows={4} placeholder={f.placeholder} />
               ) : f.type === "select" ? (
                 <select {...common} defaultValue="">
-                  <option value="">Select…</option>
+                  <option value="">{copy.labels.selectPlaceholder}</option>
                   {f.options?.map((o) => <option key={o}>{o}</option>)}
                 </select>
               ) : (
@@ -108,7 +108,7 @@ export function LeadForm() {
         })}
         {/* Honeypot: hidden from people and assistive tech, bots fill it */}
         <div aria-hidden className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
-          <label>Website<input type="text" name="website" tabIndex={-1} autoComplete="off" /></label>
+          <label>Leave empty<input type="text" name={HONEYPOT_FIELD} tabIndex={-1} autoComplete="off" /></label>
         </div>
       </div>
       {serverError && <p role="alert" className="mt-4 rounded-lg bg-red-50 p-3 text-sm text-red-800">{serverError}</p>}
@@ -117,9 +117,9 @@ export function LeadForm() {
         disabled={status === "sending"}
         className="mt-6 min-h-12 w-full rounded-lg bg-accent px-6 py-3 text-base font-semibold text-on-accent transition-colors hover:bg-accent-hover disabled:opacity-60"
       >
-        {status === "sending" ? "Sending…" : form.submit}
+        {status === "sending" ? copy.labels.sending : form.submit}
       </button>
-      <p className="mt-3 text-xs text-muted"><Txt>{form.consent}</Txt></p>
+      <p className="mt-3 text-sm text-muted"><Txt>{form.consent}</Txt></p>
     </form>
   );
 }

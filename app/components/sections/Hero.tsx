@@ -17,7 +17,7 @@ export function Hero() {
         <ul className="mt-12 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-white/80">
           {h.proofPoints.map((p) => (
             <li key={p} className="flex items-center gap-2">
-              <span aria-hidden className="text-accent">✓</span>{p}
+              <span aria-hidden className="text-accent">✓</span><Txt>{p}</Txt>
             </li>
           ))}
         </ul>

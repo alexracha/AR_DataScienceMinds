@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint .",
     "test:e2e": "playwright test",
-    "qa:codex": "codex exec --sandbox read-only \"Follow ../Agent/qa.md. Write the report to ../workspace/04-qa-report.md\""
+    "qa:codex": "codex exec --sandbox read-only \"Follow ../Agent/qa.md. Write the report to ../workspace/04-qa-report.md\"",
+    "sync:copy": "node scripts/sync-copy.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.117.2",

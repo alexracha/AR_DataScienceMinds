@@ -17,7 +17,7 @@ export function SocialProof() {
             <div key={st.value} className="rounded-xl bg-white p-6 text-center shadow-sm">
               <dt className="text-4xl font-extrabold text-navy">{st.value}</dt>
               <dd className="mt-2 text-sm text-ink">{st.label}</dd>
-              <dd className="mt-2 text-xs text-muted">Source: {st.source}</dd>
+              <dd className="mt-2 text-sm text-muted">{copy.labels.sourcePrefix} {st.source}</dd>
             </div>
           ))}
         </dl>

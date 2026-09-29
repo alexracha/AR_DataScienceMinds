@@ -1,4 +1,44 @@
-# Landing Page Copy (generated from app/content/copy.json)
+# Landing Page Copy
+
+Generated from `app/content/copy.json` by `npm run sync:copy`. Edit the JSON, not this file.
+
+## Meta
+
+```json
+{
+  "title": "AI Consulting for Growing Businesses | AR DataScienceMinds",
+  "description": "Bought AI tools but see no results? Get a free AI opportunity audit and a clear plan to make AI pay back in weeks.",
+  "ogTitle": "Turn the AI you bought into results",
+  "ogDescription": "Free AI opportunity audit. We find, prove and scale the AI workflows that pay back fastest."
+}
+```
+
+## Brand
+
+```json
+{
+  "name": "AR DataScienceMinds",
+  "primaryCta": "Get your free AI opportunity audit",
+  "ctaMicrocopy": "30-minute call · Written summary · No obligation"
+}
+```
+
+## Labels (interface text)
+
+```json
+{
+  "navAria": "Primary",
+  "formAria": "Free AI opportunity audit request",
+  "serviceFor": "For:",
+  "nextStepsHeading": "What happens next",
+  "sourcePrefix": "Source:",
+  "caseChallenge": "Challenge:",
+  "caseSolution": "What we did:",
+  "successTitle": "You're in.",
+  "selectPlaceholder": "Select…",
+  "sending": "Sending…"
+}
+```
 
 ## 1. Nav
 
@@ -40,9 +80,9 @@
   "cta": "Get your free AI opportunity audit",
   "microcopy": "30-minute call · Written summary · No obligation",
   "proofPoints": [
-    "Pilot live in 2–4 weeks",
-    "Human-in-the-loop by default",
-    "NDA before we touch your data"
+    "Pilot live in 2–4 weeks [REPLACE: confirm]",
+    "Human-in-the-loop by default [REPLACE: confirm]",
+    "NDA before we touch your data [REPLACE: confirm]"
   ]
 }
 ```
@@ -144,7 +184,7 @@
     },
     {
       "title": "Prove",
-      "body": "We build one pilot in 2–4 weeks and measure it against a single number."
+      "body": "We build one pilot in 2–4 weeks and measure it against a single number. [REPLACE: confirm]"
     },
     {
       "title": "Scale",
@@ -179,7 +219,7 @@
       "forWho": "Teams ready to automate real work",
       "outcome": "Working automations, assistants and data pipelines inside your tools",
       "includes": [
-        "Pilot in 2–4 weeks",
+        "Pilot in 2–4 weeks [REPLACE: confirm]",
         "Integration with your systems",
         "Human review steps",
         "Success metric tracking"
@@ -309,11 +349,11 @@
   "items": [
     {
       "q": "Is my data safe?",
-      "a": "We sign an NDA before seeing anything, work inside your existing tools where possible, and only use what a project needs. We'll walk you through exactly how your data is handled before any work begins."
+      "a": "We sign an NDA before seeing anything, work inside your existing tools where possible, and only use what a project needs. We'll walk you through exactly how your data is handled before any work begins. [REPLACE: confirm]"
     },
     {
       "q": "Can I trust AI to get things right?",
-      "a": "Not blindly. We build human review steps into every workflow, so your team approves what matters and the AI handles the repetitive parts."
+      "a": "Not blindly. We build human review steps into every workflow, so your team approves what matters and the AI handles the repetitive parts. [REPLACE: confirm]"
     },
     {
       "q": "What does it cost?",
@@ -325,7 +365,7 @@
     },
     {
       "q": "How long until we see results?",
-      "a": "A pilot typically goes live in 2–4 weeks, measured against one agreed number."
+      "a": "A pilot typically goes live in 2–4 weeks, measured against one agreed number. [REPLACE: confirm]"
     },
     {
       "q": "Why not just do it ourselves?",
@@ -335,16 +375,16 @@
 }
 ```
 
-## 13. Final CTA + form
+## 13. Final CTA
 
 ```json
 {
   "headline": "Find your first AI win in 30 minutes",
-  "body": "Tell us what you'd like AI to fix. We'll reply within one business day to set up your free audit call.",
+  "body": "Tell us what you'd like AI to fix. We'll reply within one business day to set up your free audit call. [REPLACE: confirm]",
   "riskReversal": "No obligation. No pressure. If we don't see a clear payback, we'll say so.",
   "nextSteps": [
     "You send the form (under a minute)",
-    "We reply within one business day",
+    "We reply within one business day [REPLACE: confirm]",
     "We hold the 30-minute audit call",
     "You get a written summary of your top opportunities"
   ]
@@ -389,19 +429,33 @@
       "label": "Team size (optional)",
       "placeholder": "",
       "required": false,
-      "type": "select"
+      "type": "select",
+      "options": [
+        "1–9",
+        "10–49",
+        "50–199",
+        "200–500",
+        "500+"
+      ]
     },
     {
       "name": "budget",
       "label": "Budget range (optional)",
       "placeholder": "",
       "required": false,
-      "type": "select"
+      "type": "select",
+      "options": [
+        "Under $5k",
+        "$5k–$15k",
+        "$15k–$50k",
+        "$50k+",
+        "Not sure yet"
+      ]
     }
   ],
   "submit": "Get your free AI opportunity audit",
   "consent": "By submitting, you agree we may contact you about your request. We never sell your data. [REPLACE: link to privacy policy]",
-  "success": "Thanks! We'll email you within one business day to set up your audit call.",
+  "success": "Thanks! We'll email you within one business day to set up your audit call. [REPLACE: confirm]",
   "errors": {
     "name": "Please enter your name.",
     "email": "Please enter a valid work email.",
@@ -412,18 +466,24 @@
 }
 ```
 
-## Meta
+## Footer
 
 ```json
 {
-  "title": "AI Consulting for Growing Businesses | AR DataScienceMinds",
-  "description": "Bought AI tools but see no results? Get a free AI opportunity audit and a clear plan to make AI pay back in weeks.",
-  "ogTitle": "Turn the AI you bought into results",
-  "ogDescription": "Free AI opportunity audit. We find, prove and scale the AI workflows that pay back fastest."
+  "links": [
+    {
+      "label": "Privacy",
+      "href": "#"
+    },
+    {
+      "label": "Terms",
+      "href": "#"
+    }
+  ],
+  "legal": "© AR DataScienceMinds. All rights reserved."
 }
 ```
 
 ## Handoff
-- Every `[REPLACE: …]` is missing proof the owner must supply.
-- Owner must confirm: FAQ security answers, turnaround promises (1 business day, 2–4 week pilot), audit deliverable.
-- Stats used are only those approved in 02-brief.md.
+- Every `[REPLACE: …]` is missing proof, or a promise the owner must confirm (`[REPLACE: confirm]`).
+- Stats used are only those approved in `02-brief.md`.
