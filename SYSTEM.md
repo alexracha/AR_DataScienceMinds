@@ -21,6 +21,7 @@
 | 2 | `Agent/consolidator.md` | `01-research.md` | `workspace/02-brief.md` |
 | 3 | `Agent/copywriter.md` | `02-brief.md` | `workspace/03-copy.md`, `app/content/copy.json` |
 | 4 | `Agent/builder.md` | `03-copy.md`, `copy.json` | `app/` |
+| 5 | `Agent/qa.md` (run with Codex, read-only) | whole repo | `workspace/04-qa-report.md` |
 
 - An agent may only read its declared input. This keeps context clean and stages re-runnable.
 - Each stage ends with a short "Handoff" block: what was done, open questions, assumptions.

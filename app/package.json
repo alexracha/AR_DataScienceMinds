@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "node scripts/check-placeholders.mjs && next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test:e2e": "playwright test",
+    "qa:codex": "codex exec --sandbox read-only \"Follow ../Agent/qa.md. Write the report to ../workspace/04-qa-report.md\""
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.117.2",
@@ -16,6 +18,7 @@
     "zod": "^4.6.5"
   },
   "devDependencies": {
+    "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^26.6.3",
     "@types/react": "^19.3.0",

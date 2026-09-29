@@ -12,6 +12,10 @@ Read `SYSTEM.md` first. It defines the mission, pipeline, 13 sections, and hones
 - Re-run a single stage by deleting its output file and re-invoking only that agent (later stages must then be re-run).
 - Researcher needs WebSearch/WebFetch.
 
+## QA
+- `Agent/qa.md` is run by Codex (see root `AGENTS.md`). It writes `workspace/04-qa-report.md`.
+- Fix reported findings, then re-run `npm run test:e2e`. Never edit or delete a test to get green.
+
 ## Conventions
 - Branch: develop on `claude/ai-consulting-landing-page-j8kmgv`; never push elsewhere.
 - Commits: small, descriptive; one per pipeline stage.
@@ -20,7 +24,7 @@ Read `SYSTEM.md` first. It defines the mission, pipeline, 13 sections, and hones
 - Placeholders use `[REPLACE: …]`. Never invent proof.
 
 ## App commands (from `app/`)
-- `npm install` · `npm run dev` · `npm run lint` · `npm run build`
+- `npm install` · `npm run dev` · `npm run lint` · `npm run build` · `npm run test:e2e`
 - Env: copy `.env.example` → `.env.local` (Supabase URL + service key, optional notify email).
 
 ## Definition of done
