@@ -11,6 +11,7 @@ npm run dev
 - `npm run lint` · `npm run build` · `npm run sync:copy` (regenerates `../workspace/03-copy.md` from `content/copy.json`)
 - `npm run test:e2e` runs Playwright against its own dev server on port 3200. On a fresh machine run `npx playwright install chromium` once first.
 - Production build **fails while `[REPLACE: …]` placeholders remain** in `content/copy.json`. Set `ALLOW_PLACEHOLDERS=1` to override.
+  - On Vercel, set `ALLOW_PLACEHOLDERS=1` for the **Preview** environment only, so PR previews build while Production stays blocked until the placeholders are filled.
 - Promises the owner must verify (NDA, human review, 2–4 week pilot, one-business-day reply) carry `[REPLACE: confirm]`. Delete the marker once it is true for your business.
 
 ## Where things live

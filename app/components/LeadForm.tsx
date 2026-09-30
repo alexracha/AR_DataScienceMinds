@@ -2,9 +2,11 @@
 
 import { useState } from "react";
 import { copy, type FormField } from "@/lib/copy";
-import { HONEYPOT_FIELD, leadSchema } from "@/lib/schema";
+import { HONEYPOT_FIELD, fieldErrors, leadSchema } from "@/lib/schema";
 import { track } from "@/lib/track";
 import { Txt } from "./ui";
+
+const AUTOCOMPLETE: Record<string, string> = { email: "email", company: "organization", name: "name" };
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -20,9 +22,7 @@ export function LeadForm() {
     const data = Object.fromEntries(new FormData(e.currentTarget)) as Record<string, string>;
     const parsed = leadSchema.safeParse(data);
     if (!parsed.success) {
-      const fields: Record<string, string> = {};
-      for (const i of parsed.error.issues) fields[String(i.path[0])] ??= i.message;
-      setErrors(fields);
+      setErrors(fieldErrors(parsed.error));
       return;
     }
     setErrors({});
@@ -66,8 +66,12 @@ export function LeadForm() {
       onSubmit={onSubmit}
       noValidate
       onChange={(e) => {
-        const { name } = e.target as unknown as { name: string };
-        if (errors[name]) setErrors((prev) => Object.fromEntries(Object.entries(prev).filter(([k]) => k !== name)));
+        const { name } = e.target as unknown as HTMLInputElement;
+        if (errors[name]) setErrors((prev) => {
+          const next = { ...prev };
+          delete next[name];
+          return next;
+        });
       }}
       onFocus={() => {
         if (!started) {
@@ -100,7 +104,7 @@ export function LeadForm() {
                   {f.options?.map((o) => <option key={o}>{o}</option>)}
                 </select>
               ) : (
-                <input {...common} type={f.type} placeholder={f.placeholder} autoComplete={f.name === "email" ? "email" : f.name === "company" ? "organization" : f.name === "name" ? "name" : undefined} />
+                <input {...common} type={f.type} placeholder={f.placeholder} autoComplete={AUTOCOMPLETE[f.name]} />
               )}
               {err && <p id={`${f.name}-err`} role="alert" className="mt-1 text-sm text-red-700">{err}</p>}
             </div>

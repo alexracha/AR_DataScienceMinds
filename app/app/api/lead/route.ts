@@ -2,9 +2,12 @@ import { createClient } from "@supabase/supabase-js";
 import { NextResponse } from "next/server";
 import { copy } from "@/lib/copy";
 import { rateLimited } from "@/lib/ratelimit";
-import { HONEYPOT_FIELD, leadSchema } from "@/lib/schema";
+import { HONEYPOT_FIELD, fieldErrors, leadSchema } from "@/lib/schema";
 
 export const runtime = "nodejs";
+
+const fail = (status: number) =>
+  NextResponse.json({ ok: false, error: copy.form.errors.server }, { status });
 
 const MAX_BODY_BYTES = 10_000; // a lead is well under 3 KB; anything bigger is abuse
 
@@ -32,19 +35,19 @@ async function readLimited(req: Request, max: number): Promise<string | null> {
 export async function POST(req: Request) {
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
   if (rateLimited(ip)) {
-    return NextResponse.json({ ok: false, error: copy.form.errors.server }, { status: 429 });
+    return fail(429);
   }
 
   const text = await readLimited(req, MAX_BODY_BYTES);
   if (text === null) {
-    return NextResponse.json({ ok: false, error: copy.form.errors.server }, { status: 413 });
+    return fail(413);
   }
 
   let body: unknown;
   try {
     body = JSON.parse(text);
   } catch {
-    return NextResponse.json({ ok: false, error: copy.form.errors.server }, { status: 400 });
+    return fail(400);
   }
 
   // Honeypot filled: pretend success so bots learn nothing. Log (no personal data)
@@ -57,9 +60,7 @@ export async function POST(req: Request) {
 
   const parsed = leadSchema.safeParse(body);
   if (!parsed.success) {
-    const fields: Record<string, string> = {};
-    for (const issue of parsed.error.issues) fields[String(issue.path[0])] ??= issue.message;
-    return NextResponse.json({ ok: false, fields }, { status: 400 });
+    return NextResponse.json({ ok: false, fields: fieldErrors(parsed.error) }, { status: 400 });
   }
 
   const lead = parsed.data;
@@ -69,7 +70,7 @@ export async function POST(req: Request) {
   if (!url || !key) {
     if (process.env.NODE_ENV === "production") {
       console.error("Lead NOT stored: SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY missing");
-      return NextResponse.json({ ok: false, error: copy.form.errors.server }, { status: 500 });
+      return fail(500);
     }
     console.warn("[dev] Supabase not configured; lead logged only:", { ...lead, email: "***" });
     return NextResponse.json({ ok: true });
@@ -88,7 +89,7 @@ export async function POST(req: Request) {
 
   if (error) {
     console.error("Lead insert failed:", error.message);
-    return NextResponse.json({ ok: false, error: copy.form.errors.server }, { status: 500 });
+    return fail(500);
   }
   return NextResponse.json({ ok: true });
 }

@@ -17,3 +17,10 @@ export const leadSchema = z.object({
 });
 
 export type LeadInput = z.infer<typeof leadSchema>;
+
+/** Flattens zod issues into `{ field: first message }` for inline form errors. */
+export function fieldErrors(error: z.ZodError): Record<string, string> {
+  const fields: Record<string, string> = {};
+  for (const issue of error.issues) fields[String(issue.path[0])] ??= issue.message;
+  return fields;
+}
