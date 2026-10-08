@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AR DataScienceMinds: project at a glance</title>
+<style>
+  :root {
+    --navy: #0b1b3a; --navy2: #12285a; --ink: #16213a; --muted: #55617a;
+    --mist: #f4f6fb; --line: #dfe4ef; --amber: #f5a524; --green: #2e7d5b; --white: #fff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1600px; height: 1000px; background: var(--mist); }
+  body { position: relative; font-family: Inter, "Segoe UI", Calibri, Arial, sans-serif; color: var(--ink); overflow: hidden; }
+  .abs { position: absolute; }
+  .band { left: 0; top: 0; width: 1600px; height: 72px; background: var(--navy); color: var(--white); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; }
+  .band h1 { font-size: 28px; font-weight: 800; letter-spacing: -.3px; }
+  .band .chips { display: flex; gap: 10px; font-size: 13px; }
+  .chip { padding: 6px 12px; border-radius: 99px; background: rgba(255,255,255,.12); white-space: nowrap; }
+  .chip.amber { background: var(--amber); color: var(--navy); font-weight: 700; }
+  .label { font-size: 13px; font-weight: 800; letter-spacing: 1.6px; color: var(--navy2); text-transform: uppercase; }
+  .label b { color: var(--amber); }
+  .card { background: var(--white); border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 2px 6px rgba(11,27,58,.08); }
+  .dark { background: var(--navy); color: var(--white); border-color: var(--navy); }
+  .num { width: 32px; height: 32px; border-radius: 50%; background: var(--navy); color: #fff; font-weight: 800; font-size: 15px; display: flex; align-items: center; justify-content: center; }
+  .agent { padding: 14px 16px; }
+  .agent h3 { font-size: 19px; margin: 8px 0 2px; color: var(--navy); }
+  .agent .file { font: 13px ui-monospace, Menlo, Consolas, monospace; color: var(--muted); margin-bottom: 6px; }
+  .agent p { font-size: 14px; line-height: 1.35; }
+  .strip { background: var(--navy2); color: #fff; border-radius: 10px; font-size: 14px; display: flex; align-items: center; padding: 0 18px; }
+  .box { padding: 16px 20px; }
+  .box h2 { font-size: 22px; color: var(--navy); margin-bottom: 4px; }
+  .box .sub { font-size: 14px; color: var(--muted); margin-bottom: 10px; }
+  .dark h2, .dark .sub { color: #fff; } .dark .sub { opacity: .75; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 10px; }
+  .tag { font-size: 13px; padding: 4px 10px; border-radius: 8px; background: var(--mist); border: 1px solid var(--line); }
+  .dark .tag { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.2); }
+  .line { font-size: 14px; line-height: 1.5; }
+  .step { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.22); border-radius: 10px; padding: 8px 6px; text-align: center; width: 96px; height: 92px; font-size: 13px; line-height: 1.25; }
+  .step b { display: block; font-size: 22px; color: var(--amber); }
+  .panel { padding: 14px 18px; }
+  .panel h3 { font-size: 18px; color: var(--navy); margin-bottom: 8px; }
+  .panel li { list-style: none; font-size: 15px; line-height: 1.55; padding-left: 18px; position: relative; }
+  .panel li::before { content: ""; position: absolute; left: 0; top: 8px; width: 8px; height: 8px; border-radius: 50%; background: var(--navy); }
+  .panel li.ok::before { background: var(--green); } .panel li.todo::before { background: var(--amber); }
+  .dark.panel li::before { background: var(--amber); }
+  .mono li { font: 13.5px/1.52 ui-monospace, Menlo, Consolas, monospace; } .mono li::before { background: var(--amber); }
+  .mono em { font-style: normal; color: var(--muted); font-family: Inter, "Segoe UI", Arial, sans-serif; }
+  .arrowlabel { font-size: 13px; color: var(--muted); text-align: center; width: 90px; line-height: 1.2; }
+  .sec { font-size: 12px; color: var(--muted); margin-top: 6px; }
+</style>
+</head>
+<body>
+
+<div class="abs band">
+  <h1>AR DataScienceMinds · Project at a glance</h1>
+  <div class="chips">
+    <span class="chip">Next.js · TypeScript · Tailwind · Zod · Supabase · Playwright</span>
+    <span class="chip">52 tests passing</span>
+    <span class="chip amber">Built, not deployed</span>
+  </div>
+</div>
+
+<!-- ============ ROW 1: BUILD PIPELINE ============ -->
+<div class="abs label" style="left:40px;top:88px"><b>1 ·</b> Build: five single-purpose agents, each reads one file and writes one file</div>
+
+<div class="abs card agent" style="left:40px;top:116px;width:255px;height:140px"><div class="num">1</div><h3>Researcher</h3><div class="file">workspace/01-research.md</div><p>Sourced market and buyer research</p></div>
+<div class="abs card agent" style="left:356px;top:116px;width:255px;height:140px"><div class="num">2</div><h3>Consolidator</h3><div class="file">workspace/02-brief.md</div><p>Positioning, pains, objections, approved stats</p></div>
+<div class="abs card agent" style="left:672px;top:116px;width:255px;height:140px"><div class="num">3</div><h3>Copywriter</h3><div class="file">app/content/copy.json</div><p>All text for 13 sections and labels</p></div>
+<div class="abs card agent" style="left:988px;top:116px;width:255px;height:140px"><div class="num">4</div><h3>Builder</h3><div class="file">app/</div><p>Next.js page, lead API, tests</p></div>
+<div class="abs card agent dark" style="left:1304px;top:116px;width:255px;height:140px"><div class="num" style="background:var(--amber);color:var(--navy)">5</div><h3 style="color:#fff">QA (Codex)</h3><div class="file" style="color:#c5cde0">read-only report</div><p>Independent review; Claude applies fixes</p></div>
+
+<div class="abs strip" style="left:40px;top:270px;width:1520px;height:34px">Governed by&nbsp;<b>SYSTEM.md · CLAUDE.md · AGENTS.md</b>&nbsp;·&nbsp;Honesty rule: no invented clients or numbers; every&nbsp;<b>[REPLACE]</b>&nbsp;placeholder blocks a production build</div>
+
+<!-- ============ ROW 2: RUNTIME ============ -->
+<div class="abs label" style="left:40px;top:322px"><b>2 ·</b> Run: how a visitor becomes a lead</div>
+
+<!-- Browser -->
+<div class="abs card box" style="left:40px;top:350px;width:440px;height:305px">
+  <h2>Browser</h2><div class="sub">13-section page, one goal: the form</div>
+  <div class="tags"><span class="tag">Hook</span><span class="tag">Credibility</span><span class="tag">Pain</span><span class="tag">Answer</span><span class="tag">Proof</span><span class="tag">Close</span></div>
+  <div class="line">Every call-to-action leads to <b>#contact</b>; a sticky CTA bar follows on mobile.</div>
+  <div class="card" style="margin-top:14px;padding:12px 14px;background:var(--mist);box-shadow:none">
+    <div style="font-weight:800;font-size:16px;color:var(--navy);margin-bottom:4px">Lead form</div>
+    <div class="line">4 required + 2 optional fields<br>Zod check in the browser<br>Hidden honeypot field <span style="font-family:ui-monospace,monospace;font-size:12px">alt_contact</span></div>
+  </div>
+</div>
+
+<!-- Next.js -->
+<div class="abs card box dark" style="left:570px;top:350px;width:560px;height:305px">
+  <h2>Next.js server</h2><div class="sub">App Router · prerendered page · one API route</div>
+  <div class="tags"><span class="tag" style="border-color:var(--amber);color:#fff">content/copy.json: all page text (from the Copywriter)</span><span class="tag">CSP + security headers</span></div>
+  <div class="line" style="margin-bottom:8px"><b style="color:var(--amber)">POST /api/lead</b> checks, in order:</div>
+  <div style="display:flex;gap:10px">
+    <div class="step"><b>1</b>Rate limit<br>5 / 10 min</div>
+    <div class="step"><b>2</b>Size cap<br>10 KB → 413</div>
+    <div class="step"><b>3</b>Honeypot<br>fake success</div>
+    <div class="step"><b>4</b>Validate<br>same Zod schema</div>
+    <div class="step"><b>5</b>Insert<br>secret key</div>
+  </div>
+  <div class="sec" style="color:#c5cde0;font-size:13px;margin-top:12px">Failures are never hidden: a missing key or a database error returns an error to the visitor.</div>
+</div>
+
+<!-- Supabase -->
+<div class="abs card box" style="left:1220px;top:350px;width:340px;height:305px">
+  <h2>Supabase</h2><div class="sub">Postgres · us-west-1</div>
+  <div class="card" style="padding:10px 14px;background:var(--mist);box-shadow:none;margin-bottom:10px">
+    <div style="font-weight:800;color:var(--navy);margin-bottom:2px;font-size:16px">public.leads</div>
+    <div class="line" style="font-size:13px;font-family:ui-monospace,Menlo,monospace">name · email · company<br>message · team_size · budget<br>source · created_at</div>
+  </div>
+  <div class="tags"><span class="tag" style="background:#e5f3ec;border-color:#bfe0cf">Row-level security on</span><span class="tag">No public policies</span></div>
+  <div class="line" style="font-size:13px">A leaked public key cannot read leads. Only the server's secret key can write.</div>
+</div>
+
+<!-- Arrows -->
+<svg class="abs" style="left:0;top:0" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#55617a"/></marker></defs>
+  <g stroke="#55617a" stroke-width="2.5" fill="none" marker-end="url(#a)">
+    <!-- pipeline -->
+    <line x1="297" y1="186" x2="352" y2="186"/><line x1="613" y1="186" x2="668" y2="186"/>
+    <line x1="929" y1="186" x2="984" y2="186"/><line x1="1245" y1="186" x2="1300" y2="186"/>
+    <!-- runtime -->
+    <line x1="570" y1="430" x2="484" y2="430"/>
+    <line x1="484" y1="560" x2="566" y2="560"/>
+    <line x1="1134" y1="520" x2="1216" y2="520"/>
+  </g>
+</svg>
+<div class="abs arrowlabel" style="left:487px;top:392px;width:80px">static<br>HTML</div>
+<div class="abs arrowlabel" style="left:487px;top:572px;width:80px">POST<br>JSON</div>
+<div class="abs arrowlabel" style="left:1132px;top:468px;width:86px;font-size:12px">insert<br>secret key</div>
+
+<!-- ============ ROW 3: PANELS ============ -->
+<div class="abs label" style="left:40px;top:678px"><b>3 ·</b> Project map</div>
+
+<div class="abs card panel mono" style="left:40px;top:706px;width:365px;height:274px">
+  <h3 style="font-family:Inter,'Segoe UI',Arial,sans-serif">Repo map</h3>
+  <ul>
+    <li>SYSTEM.md · CLAUDE.md · AGENTS.md</li>
+    <li>Agent/ <em>5 agent definitions</em></li>
+    <li>workspace/ <em>research, brief, copy</em></li>
+    <li>app/content/copy.json <em>all text</em></li>
+    <li>app/components/sections/ <em>14 files</em></li>
+    <li>app/app/api/lead/route.ts <em>API</em></li>
+    <li>app/tests/ <em>52 Playwright tests</em></li>
+    <li>app/supabase/migrations/ <em>leads</em></li>
+    <li>exports/ · presentation/ <em>PDF, PNGs, deck</em></li>
+  </ul>
+</div>
+
+<div class="abs card panel" style="left:425px;top:706px;width:365px;height:274px">
+  <h3>Quality gates</h3>
+  <ul>
+    <li class="ok">Lint and TypeScript clean</li>
+    <li class="ok">52 tests at 375px and 1280px</li>
+    <li class="ok">Build fails while [REPLACE] remains</li>
+    <li class="ok">Tests blank database keys, never write real leads</li>
+    <li class="ok">CSP, headers, 10 KB body cap, rate limit</li>
+    <li class="ok">Test fails if copy.json and 03-copy.md drift</li>
+    <li class="ok">Contrast 4.5:1 and 44px tap targets checked</li>
+  </ul>
+</div>
+
+<div class="abs card panel" style="left:810px;top:706px;width:365px;height:274px">
+  <h3>Status</h3>
+  <ul>
+    <li class="ok">Pipeline, copy and 13-section page built</li>
+    <li class="ok">Lead API, Supabase table, QA fixes done</li>
+    <li class="ok">PDF, PNG exports and 12-slide deck</li>
+    <li class="todo">Fill 40 placeholders with real proof</li>
+    <li class="todo">Live database test (host blocked here)</li>
+    <li class="todo">Rotate the Supabase key</li>
+    <li class="todo">Codex QA on your machine, then deploy</li>
+  </ul>
+</div>
+
+<div class="abs card panel dark" style="left:1195px;top:706px;width:365px;height:274px">
+  <h3 style="color:#fff">Stack and services</h3>
+  <ul>
+    <li style="color:#fff">Next.js · TypeScript · Tailwind v4 · Zod</li>
+    <li style="color:#fff">Playwright · ESLint</li>
+    <li style="color:#fff">GitHub: claude/ai-consulting-landing-page-j8kmgv</li>
+    <li style="color:#fff">Supabase: ar-datascienceminds-leads</li>
+    <li style="color:#fff">Codex CLI: installed, not signed in</li>
+    <li style="color:#fff">Vercel: planned, not deployed</li>
+  </ul>
+</div>
+
+</body>
+</html>
