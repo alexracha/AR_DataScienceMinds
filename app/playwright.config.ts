@@ -26,5 +26,8 @@ export default defineConfig({
     // Never reuse: a stale server on this port would silently test old code.
     reuseExistingServer: false,
     timeout: 120_000,
+    // Tests must never write to a real database, even if .env.local holds live keys.
+    // Empty values beat .env.local, and the API route then logs the lead instead of storing it.
+    env: { SUPABASE_URL: "", SUPABASE_SERVICE_ROLE_KEY: "" },
   },
 });
